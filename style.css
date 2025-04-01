@@ -1,160 +1,242 @@
-body{
+/* style.css */
+body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4; /* Adiciona um fundo suave */
 }
-header{
+
+header {
     text-align: center;
     padding: 20px;
     background-color: #964918;
     color: #fff;
 }
-nav{
-    background-color: #333;
-    display: flex; 
-    position: relative;
+
+.logo {
+    width: 150px; /* Ajustado tamanho */
+    height: auto;
+    margin-top: 10px;
 }
+
+nav {
+    background-color: #333;
+    display: flex;
+    align-items: center; /* Centraliza itens verticalmente */
+    position: relative;
+    padding: 0 10px; /* Adiciona padding lateral */
+}
+
+/* Estilo para o botão de toggle */
+.menu-toggle {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none; /* Escondido por padrão em telas maiores */
+    margin-left: auto; /* Empurra para a direita */
+}
+
+.menu-toggle img {
+    width: 25px; /* Tamanho do ícone */
+    height: auto;
+    display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Esconder spans se estiver usando imagem */
+/* .menu-toggle .bar { */
+/*     display: block; */
+/*     width: 25px; */
+/*     height: 3px; */
+/*     background-color: white; */
+/*     margin: 5px auto; */
+/*     transition: 0.4s; */
+/* } */
+
 nav ul.menu {
     list-style: none;
     display: flex;
+    padding: 0;
+    margin: 0;
+    /* Remover role="menubar" não afeta o display visual */
 }
-nav li{
-    margin: 0 15px;
-    position: relative;
-    flex-direction: column;
-    align-items: center;
+
+nav li { /* role="none" não precisa de estilo específico */
+    margin: 0; /* Removido margin original */
 }
-nav a{
+
+nav a[role="menuitem"] { /* Estilo para os links do menu */
     color: #fff;
     text-decoration: none;
+    padding: 15px 20px; /* Área de clique maior */
+    display: block; /* Garante que o padding funcione */
+    transition: background-color 0.3s ease;
 }
-main{
+
+nav a[role="menuitem"]:hover,
+nav a[role="menuitem"]:focus { /* Estilo para hover e foco (acessibilidade) */
+    background-color: #555;
+    outline: 2px solid yellow; /* Destaque de foco visível */
+    outline-offset: -2px; /* Ajuste visual do outline */
+}
+
+
+main {
     padding: 20px;
+    max-width: 1200px; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza o conteúdo principal */
 }
-article{
-    padding: 15px;
-    background-color: #fff;
+
+/* Estilos para as seções geradas */
+main section {
+    margin-bottom: 40px;
+}
+
+main section h2 {
+    border-bottom: 2px solid #964918;
+    padding-bottom: 10px;
     margin-bottom: 20px;
+    color: #333;
+}
+
+/* Container para os itens de menu dentro de cada seção */
+.menu-items-container {
+    display: grid; /* Usar grid para layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo */
+    gap: 20px; /* Espaçamento entre itens */
+}
+
+/* Estilo do Card/Article do item */
+.menu-item { /* Renomeado de 'article' para classe específica */
+    background-color: #fff;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para conter a imagem */
+    display: flex; /* Organiza imagem e detalhes */
+    flex-direction: column;
 }
-ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-}
-main{
-    padding: 20px;
-}
-article{
-    padding: 15px;
-}
-img{
+
+.menu-item img {
     width: 100%;
-    height: auto;
+    height: 200px; /* Altura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    border-bottom: 1px solid #eee;
+}
+
+.menu-item .item-details {
+    padding: 15px;
+    flex-grow: 1; /* Faz essa div ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item h3 { /* Usar H3 para itens dentro de H2 da seção */
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #964918;
+    font-size: 1.2em;
+}
+
+.menu-item p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: #555;
+    flex-grow: 1; /* Empurra preço e botão para baixo se a descrição for curta */
+}
+
+.price-section {
+    margin-bottom: 15px; /* Espaço antes do botão */
+}
+
+.preco {
+    color: #E74C3C; /* Vermelho mais vibrante */
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 0; /* Remover margens padrão do <p> */
+}
+
+.preco-promocao {
+    color: #7f8c8d; /* Cinza */
+    text-decoration: line-through;
+    font-size: 0.9em;
+    margin: 0 0 5px 0; /* Espaço abaixo do preço antigo */
+    display: block; /* Garante que fique em linha separada */
+}
+
+.add-to-cart-btn {
+    background-color: #27AE60; /* Verde */
+    color: white;
+    border: none;
+    padding: 10px 15px;
     border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    margin-top: auto; /* Empurra o botão para o final do card */
+    transition: background-color 0.3s ease;
 }
-h1{
-    color: #fff;
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+    background-color: #229954; /* Verde mais escuro */
+    outline: 2px solid #333; /* Destaque de foco */
+    outline-offset: 2px;
 }
-.logo{
-    width: 200px;
-}
+
 footer {
-    text-align: right;
+    text-align: center; /* Centralizado */
     padding: 20px;
     background-color: #333;
     color: #fff;
-}
-.preco{
-    color: red;
-    padding: 5px;
-}
-.preco-promocao{
-    color: rgb(69, 70, 70);
-    text-decoration: line-through;
-}
-#promocao p {
-    margin-top: 0.1em;
-    margin-bottom: 0.1em;
-    line-height: 0.5em;
+    margin-top: 40px; /* Espaço acima do footer */
 }
 
-#menu-toggle {
-    display: none;
-}
-
-.menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
-@media (min-width: 768px){
-    main{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    article{
-        width: 45%;
-    }
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: 0.4s;
-}
-
+/* Media Query para o menu responsivo */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul.menu {
-        display: none; 
-        flex-direction: column;
-        position: absolute;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        text-align: center;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    nav li {
-        margin: 0;
-        padding: 10px 0;
-        border-bottom: 1px solid #555;
-        background-color: #333;
-    }
-
-    nav a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        padding: 10px;
-    }
-
-    nav a:hover {
-        background-color: #555;
+        flex-wrap: wrap; /* Permite que o menu vá para baixo */
+        justify-content: space-between; /* Espaça logo/titulo e botão */
+        padding: 5px 10px;
     }
 
     .menu-toggle {
-        display: flex;
-        position: absolute;
-        right: 10px;
+        display: block; /* Mostra o botão em telas pequenas */
     }
 
-    nav ul.menu.active { 
-        display: flex;
-        margin:0px;
-        padding:0;
+    nav ul.menu {
+        display: none; /* Esconde o menu por padrão */
+        flex-direction: column;
+        width: 100%;
+        order: 2; /* Coloca o menu depois do botão no fluxo */
+        background-color: #333;
+        position: absolute; /* Ou relative, dependendo do efeito desejado */
+        top: 100%; /* Posiciona abaixo do nav */
+        left: 0;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 10;
     }
 
-    #menu-toggle:checked + label + ul.menu {
-        display: flex;
+    nav ul.menu.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+
+    nav li[role="none"] {
+        width: 100%; /* Ocupa toda a largura */
+        border-top: 1px solid #555; /* Divisor entre itens */
+    }
+    nav li[role="none"]:first-child {
+        border-top: none;
+    }
+
+    nav a[role="menuitem"] {
+        text-align: center; /* Centraliza texto */
+        padding: 15px;
     }
 }
+
+/* Media query adicional para layout dos itens (opcional) */
+/* @media (min-width: 992px) {
+    .menu-items-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas em telas maiores */
+/*    }
+} */
