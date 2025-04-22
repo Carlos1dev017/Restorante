@@ -1,0 +1,417 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Adiciona um fundo suave */
+}
+
+header {
+  display: flex;
+  align-items: center; /* Alinha verticalmente todo o conteúdo do header */
+  justify-content: space-between; /* Coloca o grupo título/logo na esquerda e o botão na direita */
+  padding: 10px 20px;
+  background-color: #964918; /* Sua cor */
+  color: #fff; /* Sua cor */
+}
+
+/* Estilo para o grupo que contém o logo e o h1 */
+.header-title-group {
+  display: flex; /* Coloca o logo e o h1 lado a lado */
+  align-items: center; /* Alinha verticalmente o logo e o h1 */
+}
+
+/* Estilo específico para o logo no header */
+.header-logo {
+  height: 100px; /* Ajuste a altura */
+  width: auto;
+  margin-right: 10px; /* Espaço entre logo e título */
+}
+
+/* Ajuste as margens do H1 se necessário */
+.header-title-group h1 {
+  margin: 0; /* Remove margens padrão */
+}
+
+/* Estilo do botão do carrinho */
+.cart-button {
+  /* Seus estilos para o botão */
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+.cart-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+nav {
+  background-color: #333;
+  display: flex;
+  align-items: center; /* Centraliza itens verticalmente */
+  position: relative;
+  padding: 0 10px; /* Adiciona padding lateral */
+}
+
+/* Estilo para o botão de toggle */
+.menu-toggle {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  display: none; /* Escondido por padrão em telas maiores */
+  margin-left: auto; /* Empurra para a direita */
+}
+
+.menu-toggle img {
+  width: 25px; /* Tamanho do ícone */
+  height: auto;
+  display: block; /* Remove espaço extra abaixo da imagem */
+}
+
+/* Esconder spans se estiver usando imagem */
+/* .menu-toggle .bar { */
+/*     display: block; */
+/*     width: 25px; */
+/*     height: 3px; */
+/*     background-color: white; */
+/*     margin: 5px auto; */
+/*     transition: 0.4s; */
+/* } */
+
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  /* Remover role="menubar" não afeta o display visual */
+}
+
+nav li { /* role="none" não precisa de estilo específico */
+  margin: 0; /* Removido margin original */
+}
+
+nav a[role="menuitem"] { /* Estilo para os links do menu */
+  color: #fff;
+  text-decoration: none;
+  padding: 15px 20px; /* Área de clique maior */
+  display: block; /* Garante que o padding funcione */
+  transition: background-color 0.3s ease;
+}
+
+nav a[role="menuitem"]:hover,
+nav a[role="menuitem"]:focus { /* Estilo para hover e foco (acessibilidade) */
+  background-color: #555;
+  outline: 2px solid yellow; /* Destaque de foco visível */
+  outline-offset: -2px; /* Ajuste visual do outline */
+}
+
+
+main {
+  padding: 20px;
+  max-width: 1200px; /* Limita a largura máxima */
+  margin: 0 auto; /* Centraliza o conteúdo principal */
+}
+
+/* Estilos para as seções geradas */
+main section {
+  margin-bottom: 40px;
+}
+
+main section h2 {
+  border-bottom: 2px solid #964918;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Container para os itens de menu dentro de cada seção */
+.menu-items-container {
+  display: grid; /* Usar grid para layout */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo */
+  gap: 20px; /* Espaçamento entre itens */
+}
+
+/* Estilo do Card/Article do item */
+.menu-item { /* Renomeado de 'article' para classe específica */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Para conter a imagem */
+  display: flex; /* Organiza imagem e detalhes */
+  flex-direction: column;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px; /* Altura fixa para a imagem */
+  object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+  border-bottom: 1px solid #eee;
+}
+
+.menu-item .item-details {
+  padding: 15px;
+  flex-grow: 1; /* Faz essa div ocupar o espaço restante */
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item h3 { /* Usar H3 para itens dentro de H2 da seção */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #964918;
+  font-size: 1.2em;
+}
+
+.menu-item p {
+  margin-bottom: 15px;
+  line-height: 1.5;
+  color: #555;
+  flex-grow: 1; /* Empurra preço e botão para baixo se a descrição for curta */
+}
+
+.price-section {
+  margin-bottom: 15px; /* Espaço antes do botão */
+}
+
+.preco {
+  color: #E74C3C; /* Vermelho mais vibrante */
+  font-weight: bold;
+  font-size: 1.1em;
+  margin: 0; /* Remover margens padrão do <p> */
+}
+
+.preco-promocao {
+  color: #7f8c8d; /* Cinza */
+  text-decoration: line-through;
+  font-size: 0.9em;
+  margin: 0 0 5px 0; /* Espaço abaixo do preço antigo */
+  display: block; /* Garante que fique em linha separada */
+}
+
+.add-to-cart-btn {
+  background-color: #27AE60; /* Verde */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  text-align: center;
+  margin-top: auto; /* Empurra o botão para o final do card */
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover,
+.add-to-cart-btn:focus {
+  background-color: #229954; /* Verde mais escuro */
+  outline: 2px solid #333; /* Destaque de foco */
+  outline-offset: 2px;
+}
+
+footer {
+  text-align: center; /* Centralizado */
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  margin-top: 40px; /* Espaço acima do footer */
+}
+
+/* Media Query para o menu responsivo */
+@media (max-width: 768px) {
+  nav {
+      flex-wrap: wrap; /* Permite que o menu vá para baixo */
+      justify-content: space-between; /* Espaça logo/titulo e botão */
+      padding: 5px 10px;
+  }
+
+  .menu-toggle {
+      display: block; /* Mostra o botão em telas pequenas */
+  }
+
+  nav ul.menu {
+      display: none; /* Esconde o menu por padrão */
+      flex-direction: column;
+      width: 100%;
+      order: 2; /* Coloca o menu depois do botão no fluxo */
+      background-color: #333;
+      position: absolute; /* Ou relative, dependendo do efeito desejado */
+      top: 100%; /* Posiciona abaixo do nav */
+      left: 0;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 10;
+  }
+
+  nav ul.menu.active {
+      display: flex; /* Mostra o menu quando ativo */
+  }
+
+  nav li[role="none"] {
+      width: 100%; /* Ocupa toda a largura */
+      border-top: 1px solid #555; /* Divisor entre itens */
+  }
+  nav li[role="none"]:first-child {
+      border-top: none;
+  }
+
+  nav a[role="menuitem"] {
+      text-align: center; /* Centraliza texto */
+      padding: 15px;
+  }
+}
+
+/* --- Estilos do Carrinho --- */
+.cart {
+  width: 300px; /* Ou a largura desejada */
+  flex-shrink: 0; /* Impede que o carrinho encolha */
+   max-height: calc(100vh - 150px); /* Ajuste 150px conforme necessário */
+  background-color: #f8f9fa; /* Um fundo levemente diferente para destacar */
+  border-left: 1px solid #dee2e6; /* Borda para separar do conteúdo */
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Habilita scroll DENTRO do carrinho se necessário */
+  transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.cart-header h2 {
+  margin: 0;
+  font-size: 1.3em;
+  color: #333;
+}
+
+.close-cart-btn {
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  cursor: pointer;
+  color: #888;
+  padding: 0 5px;
+  line-height: 1;
+}
+.close-cart-btn:hover {
+    color: #333;
+}
+
+
+.cart ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.cart li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #eee;
+  font-size: 0.95em;
+  color: #444;
+}
+.cart li:last-child {
+    border-bottom: none;
+}
+
+.cart hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+.cart strong {
+    color: #333;
+}
+
+.cart p {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.checkout-btn {
+    background-color: #27AE60; /* Verde */
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+    background-color: #229954;
+}
+
+
+/* --- Estilos da Notificação --- */
+.notification {
+  position: fixed;
+  bottom: 20px; /* Ou top: 20px; */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  z-index: 1001; /* Acima do carrinho */
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  /* Animação opcional */
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+}
+
+/* Adicione o botão do carrinho no Header CSS se não existir */
+.page-content-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Área principal do conteúdo (cardápio) */
+.main-content { /* Classe adicionada ao <main> */
+  flex-grow: 1; /* Faz esta área ocupar o espaço restante */
+  padding: 20px; /* Mantenha ou ajuste seu padding */
+  /* Opcional: Transição suave se o carrinho aparecer/desaparecer */
+  transition: width 0.3s ease-in-out;
+}
+
+.cart-button {
+    background-color: transparent;
+    color: white; /* Ou a cor do seu header */
+    border: 1px solid white; /* Ou a cor do seu header */
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: auto; /* Empurra para a direita no flex container */
+}
+.cart-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Certifique-se que o header é flex para o botão ir para a direita */
+header {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */ /* Remova se quiser o título à esquerda e o botão à direita */
+}
+
+header h1 {
+    margin-right: auto; /* Empurra o botão para a direita */
+}
