@@ -1,6 +1,6 @@
-# Restorente - Cardápio Online 🍽️
+# Restorante - Cardápio Online 🍽️
 
-**Slogan:** Restorente: O resto de ontem é o prato de hoje!
+**Slogan:** Restorante: O resto de ontem é o prato de hoje!
 
 ## 🎯 Objetivo
 
