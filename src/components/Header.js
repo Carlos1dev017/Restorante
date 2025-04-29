@@ -13,7 +13,7 @@ function Header({ cartItemCount, onToggleCart }) {
           className="header-logo"
         />
         {}
-        <h1>Restaurante</h1>
+        <h1>Restorante</h1>
       </div>
 
       {/* Botão do carrinho (permanece no mesmo nível do container do título) */}
@@ -23,5 +23,4 @@ function Header({ cartItemCount, onToggleCart }) {
     </header>
   );
 }
-
 export default Header;

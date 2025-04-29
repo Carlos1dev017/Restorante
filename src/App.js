@@ -21,13 +21,6 @@ function App() {
   const handleAddToCart = (itemToAdd) => {
     setCartItems(prevItems => [...prevItems, itemToAdd]);
     setNotification(`${itemToAdd.name} foi adicionado ao carrinho!`);
-
-    // Limpa a notificação após 3 segundos
-    const timer = setTimeout(() => {
-      setNotification('');
-    }, 3000);
-    // É uma boa prática limpar o timer se o componente desmontar antes
-    // return () => clearTimeout(timer); // Isso funciona melhor dentro de um useEffect
   };
 
   // Limpa a notificação (pode ser usado em useEffect)
@@ -100,5 +93,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
