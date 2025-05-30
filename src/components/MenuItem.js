@@ -23,7 +23,14 @@ function MenuItem({ item, onAddToCart }) {
   return (
     <article className="menu-item" data-id={item.id}>
       {/* Usa imageSrc diretamente pois são URLs externas */}
-      <img src={item.imageSrc} alt={item.imageAlt || item.name} />
+      <img
+        src={item.imageSrc}
+        alt={item.imageAlt || item.name}
+        className="menu-item-image"
+        loading="lazy"
+        width="200" 
+        height="150" 
+      />
       <div className="item-details">
         <h3>{item.name}</h3>
         <p>{item.description}</p>
