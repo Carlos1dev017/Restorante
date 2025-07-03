@@ -234,6 +234,12 @@ footer {
     }
 }
 
+.menu-item-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Faz a imagem preencher o espaço sem distorcer */
+}
+
 /* Media query adicional para layout dos itens (opcional) */
 /* @media (min-width: 992px) {
     .menu-items-container {
